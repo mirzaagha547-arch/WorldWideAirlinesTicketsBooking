@@ -1,148 +1,137 @@
-/* =========================
-           RESET
-        ========================= */
-
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f4f8fc;
-            color: #222;
+            background: #f5f8fc;
+            color: #172033;
             line-height: 1.6;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
+        /* ================= HEADER ================= */
 
         header {
-            width: 100%;
-            background: white;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 27px;
-            font-weight: bold;
-            color: #0866a6;
+            font-size: 22px;
+            font-weight: 800;
+            color: #0969da;
+            text-decoration: none;
         }
 
         .logo span {
-            font-size: 32px;
+            color: #172033;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
         }
 
         nav a {
+            color: #172033;
             text-decoration: none;
-            color: #333;
             font-weight: 600;
-            margin-left: 25px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #087fba;
+            color: #0969da;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #0969da;
+        }
+
+        /* ================= HERO ================= */
 
         .hero {
-            min-height: 680px;
-            padding: 80px 7%;
-
+            min-height: 570px;
             background:
-                linear-gradient(
-                    rgba(0, 48, 77, 0.75),
-                    rgba(0, 48, 77, 0.75)
-                ),
-                linear-gradient(
-                    135deg,
-                    #087fba,
-                    #023b5c
-                );
-
-            color: white;
+                linear-gradient(rgba(4, 31, 68, 0.72), rgba(4, 31, 68, 0.72)),
+                url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
 
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 80px 20px;
         }
 
         .hero-content {
             width: 100%;
             max-width: 1150px;
             text-align: center;
+            color: white;
         }
 
-        .hero h1 {
-            font-size: 56px;
+        .hero-content h1 {
+            font-size: clamp(38px, 6vw, 65px);
             margin-bottom: 15px;
         }
 
-        .hero p {
+        .hero-content > p {
             font-size: 19px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
+            opacity: 0.95;
         }
 
-        /* =========================
-           BOOKING BOX
-        ========================= */
+        /* ================= SEARCH BOX ================= */
 
-        .booking-box {
+        .search-box {
             background: white;
-            color: #222;
-
-            padding: 30px;
-
-            max-width: 1100px;
-            margin: auto;
-
+            color: #172033;
             border-radius: 18px;
-
-            box-shadow:
-                0 15px 45px rgba(0,0,0,0.25);
-
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
             text-align: left;
         }
 
         .trip-types {
             display: flex;
             gap: 25px;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
         }
 
         .trip-types label {
-            font-weight: bold;
             cursor: pointer;
+            font-weight: 600;
         }
 
         .trip-types input {
             margin-right: 6px;
+            accent-color: #0969da;
         }
 
-        .booking-grid {
+        .search-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 17px;
+            gap: 15px;
         }
 
         .field {
@@ -151,59 +140,57 @@
         }
 
         .field label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
+            font-size: 13px;
+            font-weight: 700;
             margin-bottom: 7px;
+            color: #4b5563;
         }
 
         .field input,
         .field select {
-            padding: 14px;
-
-            border: 1px solid #ddd;
+            width: 100%;
+            height: 47px;
+            border: 1px solid #d5dae2;
             border-radius: 8px;
-
-            outline: none;
-
+            padding: 0 12px;
             font-size: 14px;
+            outline: none;
+            background: white;
         }
 
         .field input:focus,
         .field select:focus {
-            border-color: #087fba;
+            border-color: #0969da;
+            box-shadow: 0 0 0 3px rgba(9,105,218,0.1);
         }
 
-        .search-btn {
-            grid-column: 1 / -1;
-
-            padding: 15px;
-
-            background: #ff8a00;
-            color: white;
-
+        .search-button {
+            grid-column: span 4;
             border: none;
+            background: #0969da;
+            color: white;
+            height: 52px;
             border-radius: 8px;
-
-            font-size: 17px;
-            font-weight: bold;
-
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-
             transition: 0.3s;
         }
 
-        .search-btn:hover {
-            background: #e57500;
+        .search-button:hover {
+            background: #0756b5;
             transform: translateY(-2px);
         }
 
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
+        /* ================= GENERAL ================= */
 
         section {
-            padding: 80px 7%;
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
         }
 
         .section-title {
@@ -212,337 +199,214 @@
         }
 
         .section-title h2 {
-            color: #064b75;
             font-size: 38px;
+            color: #172033;
             margin-bottom: 10px;
         }
 
         .section-title p {
-            color: #666;
+            color: #667085;
         }
 
-        /* =========================
-           DESTINATIONS
-        ========================= */
+        /* ================= DESTINATIONS ================= */
 
         .destinations {
-            background: white;
+            background: #ffffff;
         }
 
         .destination-grid {
-            max-width: 1200px;
-            margin: auto;
-
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-
             gap: 25px;
         }
 
         .destination-card {
             background: white;
-
-            border-radius: 15px;
-
+            border-radius: 16px;
             overflow: hidden;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
             transition: 0.3s;
         }
 
         .destination-card:hover {
             transform: translateY(-8px);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.13);
         }
 
         .destination-image {
-            height: 200px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 75px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #dff5ff,
-                    #b9e5f7
-                );
+            height: 210px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .destination-content {
-            padding: 25px;
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
         }
 
-        .destination-content h3 {
-            color: #064b75;
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .flag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 22px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .destination-info {
+            padding: 22px;
+        }
+
+        .destination-info h3 {
             font-size: 24px;
             margin-bottom: 8px;
         }
 
-        .destination-content p {
-            color: #666;
-            margin-bottom: 15px;
+        .destination-info p {
+            color: #667085;
+            font-size: 14px;
+            min-height: 70px;
         }
 
-        .destination-price {
-            color: #ff7800;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .details-btn {
-            border: none;
-
-            padding: 11px 18px;
-
-            background: #087fba;
-            color: white;
-
-            border-radius: 7px;
-
-            cursor: pointer;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .details-btn:hover {
-            background: #064b75;
-        }
-
-        /* =========================
-           DESTINATION DETAILS
-        ========================= */
-
-        .destination-details {
-            display: none;
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0,0,0,0.75);
-
-            z-index: 2000;
-
-            justify-content: center;
-            align-items: center;
-
-            padding: 20px;
-        }
-
-        .destination-details.active {
+        .destination-bottom {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
         }
 
-        .details-box {
-            background: white;
-
-            max-width: 800px;
-            width: 100%;
-
-            max-height: 90vh;
-
-            overflow-y: auto;
-
-            border-radius: 15px;
-
-            padding: 35px;
-
-            position: relative;
+        .price {
+            font-weight: 800;
+            color: #0969da;
         }
 
-        .close-btn {
-            position: absolute;
-
-            right: 20px;
-            top: 15px;
-
-            font-size: 30px;
-
-            border: none;
-
-            background: transparent;
-
-            cursor: pointer;
-
-            color: #555;
+        .explore-btn {
+            background: #eaf3ff;
+            color: #0969da;
+            padding: 9px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
         }
 
-        .details-box h2 {
-            color: #064b75;
-            font-size: 35px;
-            margin-bottom: 15px;
+        .explore-btn:hover {
+            background: #0969da;
+            color: white;
         }
 
-        .details-box h3 {
-            color: #087fba;
-            margin-top: 20px;
-            margin-bottom: 7px;
-        }
+        /* ================= WHY US ================= */
 
-        .details-box p {
-            color: #555;
-            margin-bottom: 10px;
+        .why-us {
+            background: #f5f8fc;
         }
-
-        /* =========================
-           WHY CHOOSE US
-        ========================= */
 
         .features {
-            background: #f4f8fc;
-        }
-
-        .feature-grid {
-            max-width: 1100px;
-            margin: auto;
-
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-
-            gap: 20px;
+            gap: 22px;
         }
 
         .feature {
             background: white;
-
-            padding: 30px 20px;
-
-            border-radius: 15px;
-
+            padding: 30px 22px;
+            border-radius: 14px;
             text-align: center;
-
-            box-shadow:
-                0 5px 18px rgba(0,0,0,0.07);
-
-            transition: 0.3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-7px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .feature-icon {
-            font-size: 45px;
+            font-size: 42px;
             margin-bottom: 15px;
         }
 
         .feature h3 {
-            color: #064b75;
             margin-bottom: 10px;
         }
 
         .feature p {
-            color: #666;
+            color: #667085;
             font-size: 14px;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
+        /* ================= ABOUT ================= */
 
         .about {
-            background: #064b75;
-            color: white;
-        }
-
-        .about-container {
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            gap: 50px;
-
-            align-items: center;
-        }
-
-        .about h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            color: #d8edf7;
-            margin-bottom: 15px;
-        }
-
-        .about-box {
-            background: rgba(255,255,255,0.12);
-
-            padding: 50px;
-
-            border-radius: 20px;
-
-            text-align: center;
-        }
-
-        .about-box .plane {
-            font-size: 80px;
-            margin-bottom: 15px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
             background: white;
         }
 
-        .contact-container {
-            max-width: 1050px;
-            margin: auto;
-
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-            gap: 35px;
+        .about-image img {
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #667085;
+            margin-bottom: 18px;
+        }
+
+        .world-box {
+            background: linear-gradient(135deg, #0969da, #064b9b);
+            color: white;
+            padding: 25px;
+            border-radius: 14px;
+            margin-top: 25px;
+        }
+
+        .world-box h3 {
+            margin-bottom: 5px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #f5f8fc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
         }
 
         .contact-info,
         .contact-form {
-            background: #f7fafc;
-
+            background: white;
             padding: 35px;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.06);
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
         }
 
-        .contact-info h3,
-        .contact-form h3 {
-            color: #064b75;
-            font-size: 27px;
-            margin-bottom: 15px;
-        }
-
-        .contact-info > p {
-            color: #666;
+        .contact-info h2,
+        .contact-form h2 {
             margin-bottom: 25px;
         }
 
         .contact-item {
             display: flex;
             gap: 15px;
-            margin: 20px 0;
+            margin-bottom: 25px;
         }
 
         .contact-icon {
@@ -550,201 +414,220 @@
         }
 
         .contact-item strong {
-            color: #064b75;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        .contact-item p {
-            color: #666;
+        .contact-item span {
+            color: #667085;
+            font-size: 14px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-
-            padding: 14px;
-
-            margin-bottom: 15px;
-
-            border: 1px solid #ddd;
-
+            border: 1px solid #d5dae2;
             border-radius: 8px;
-
+            padding: 12px;
+            font-family: inherit;
+            font-size: 14px;
             outline: none;
-
-            font-size: 15px;
         }
 
-        .contact-form textarea {
+        .form-group textarea {
+            height: 130px;
             resize: vertical;
         }
 
-        .send-btn {
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #0969da;
+        }
+
+        .submit-btn {
             width: 100%;
-
-            padding: 14px;
-
-            background: #087fba;
-
-            color: white;
-
             border: none;
-
+            background: #0969da;
+            color: white;
+            padding: 14px;
             border-radius: 8px;
-
             font-size: 16px;
-
-            font-weight: bold;
-
+            font-weight: 700;
             cursor: pointer;
         }
 
-        .send-btn:hover {
-            background: #064b75;
+        .submit-btn:hover {
+            background: #0756b5;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* ================= FOOTER ================= */
 
         footer {
-            background: #032d43;
-
+            background: #071a33;
             color: white;
-
-            padding: 45px 7% 20px;
+            padding: 55px 20px 25px;
         }
 
         .footer-grid {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
-
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
 
-            gap: 40px;
+        .footer-logo {
+            font-size: 23px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .footer-column p {
+            color: #aebbd0;
+            font-size: 14px;
+            max-width: 400px;
         }
 
         .footer-column h3 {
             margin-bottom: 15px;
         }
 
-        .footer-column p,
         .footer-column a {
-            color: #b9d0dc;
-
-            text-decoration: none;
-
             display: block;
-
-            margin-bottom: 8px;
+            color: #aebbd0;
+            text-decoration: none;
+            margin-bottom: 9px;
+            font-size: 14px;
         }
 
         .footer-column a:hover {
             color: white;
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.15);
-            margin-top: 35px;
-            padding: 22px 0 5px;
+        .copyright {
+            max-width: 1200px;
+            margin: 45px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: #8f9db3;
+            font-size: 13px;
             text-align: center;
-            color: #9bb3c0;
         }
 
-        .footer-bottom p {
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            display: block;
+        /* ================= NOTIFICATION ================= */
+
+        .notification {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #172033;
+            color: white;
+            padding: 16px 22px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
         }
 
-        /* =========================
-           RESPONSIVE DESIGN
-        ========================= */
+        /* ================= RESPONSIVE ================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
 
-            header {
-                flex-direction: column;
-                gap: 15px;
+            .search-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            nav a {
-                margin: 0 8px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .booking-grid {
-                grid-template-columns: 1fr 1fr;
+            .search-button {
+                grid-column: span 2;
             }
 
             .destination-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .feature-grid {
-                grid-template-columns: 1fr 1fr;
+            .features {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .about-container,
-            .contact-container {
+            .about-content {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
-            header {
-                padding: 15px 5%;
+            .navbar {
+                height: 65px;
             }
 
             nav {
-                text-align: center;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
-                font-size: 14px;
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
             }
 
             .hero {
-                padding: 60px 5%;
+                padding: 60px 15px;
             }
 
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .booking-grid {
+            .search-grid {
                 grid-template-columns: 1fr;
             }
 
-            .destination-grid,
-            .feature-grid {
+            .search-button {
+                grid-column: span 1;
+            }
+
+            .destination-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .about-text h2 {
+                font-size: 30px;
+            }
+
+            .trip-types {
+                gap: 12px;
+                flex-wrap: wrap;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 5%;
-            }
-
-            .section-title h2 {
-                font-size: 30px;
+                gap: 30px;
             }
         }
