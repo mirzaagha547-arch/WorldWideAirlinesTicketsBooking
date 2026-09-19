@@ -464,3 +464,81 @@ function sendMessage(event) {
 
     event.target.reset();
 }
+
+
+function toggleMenu() {
+            document.getElementById("nav").classList.toggle("active");
+        }
+
+
+        function showNotification(message) {
+
+            const notification =
+                document.getElementById("notification");
+
+            notification.textContent = message;
+            notification.style.display = "block";
+
+            setTimeout(function () {
+                notification.style.display = "none";
+            }, 3500);
+        }
+
+
+        function searchFlights() {
+
+            const inputs = document.querySelectorAll(
+                '.search-grid input[type="text"]'
+            );
+
+            const from = inputs[0].value.trim();
+            const to = inputs[1].value.trim();
+
+            if (!from || !to) {
+                showNotification(
+                    "Please enter your departure and arrival cities."
+                );
+                return;
+            }
+
+            showNotification(
+                "Flight search submitted! Connect this form to your flight API/backend to display real results."
+            );
+        }
+
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            showNotification(
+                "Thank you! Your message has been submitted."
+            );
+
+            event.target.reset();
+        }
+
+
+        // Automatically set minimum departure date to today
+
+        const today = new Date().toISOString().split("T")[0];
+
+        const dateInputs = document.querySelectorAll(
+            'input[type="date"]'
+        );
+
+        dateInputs.forEach(function(input) {
+            input.min = today;
+        });
+
+
+        // Close mobile menu after clicking a navigation link
+
+        document.querySelectorAll("nav a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+                document.getElementById("nav").classList.remove("active");
+            });
+
+        });
+
