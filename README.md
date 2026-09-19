@@ -110,7 +110,7 @@ The current website is intentionally simple and can run directly from index.html
 
 🚀 Getting Started
 Clone the repository
-git clone https://github.com/YOUR-USERNAME/WorldWideAirlinesTicketsBooking.git
+git clone https://github.com/abbastaimoor451-sketch/WorldWideAirlinesTicketsBooking.git
 
 Open the project
 cd WorldWideAirlinesTicketsBooking
