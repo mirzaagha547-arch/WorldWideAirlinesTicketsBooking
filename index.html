@@ -1,163 +1,1309 @@
- WorldWideAirlinesTicketsBooking
-Home Destinations About Contact
-Book Your Perfect Flight
-Search flights, explore destinations and plan your next unforgettable journey.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldWideAirlinesTicketsBooking</title>
 
- Round Trip  One Way  Multi-City
-From 
-Departure city
-To 
-Arrival city
-Departure 
-mm/dd/yyyy
-Return 
-mm/dd/yyyy
-Adults 
-1 Adults
-Youths 
-1 Youths
-Childrens 
-1 Childrens
-Infants 
-1 Infants
-Cabin Class 
-Economy
-Airline 
-Any Airline
-Promo Code 
-Optional
-🔎 Search Flights
-Popular Destinations
-Explore some of the world's most exciting travel destinations.
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-🇦🇪
-Dubai
-Discover futuristic architecture, luxury shopping, beautiful beaches and unforgettable desert adventures.
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8fc;
+            color: #172033;
+            line-height: 1.6;
+        }
 
-From £299
-Explore Dubai
-🇬🇧
-London
-Explore historic landmarks, museums, royal attractions and vibrant city life.
+        /* ================= HEADER ================= */
 
-From £499
-Explore London
-🇫🇷
-Paris
-Experience art, fashion, cuisine, historic architecture and romantic streets.
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-From £449
-Explore Paris
-🇺🇸
-New York
-Visit Times Square, Central Park, museums, restaurants and iconic skyscrapers.
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-From £599
-Explore New York
-🇹🇷
-Istanbul
-Discover historic mosques, bazaars, delicious food and the unique culture connecting two continents.
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0969da;
+            text-decoration: none;
+        }
 
-From £349
-Explore Istanbul
-🇲🇻
-Maldives
-Relax on beautiful beaches and enjoy crystal-clear water, resorts and unforgettable island experiences.
+        .logo span {
+            color: #172033;
+        }
 
-From £549
-Explore Maldives
-🇸🇬
-Singapore
-Experience a clean modern city with gardens, shopping, food and impressive architecture.
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-From £399
-Explore Singapore
-🇯🇵
-Tokyo
-Discover Japanese culture, technology, food, temples and one of the world's most exciting cities.
+        nav a {
+            color: #172033;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-From £699
-Explore Tokyo
-🇲🇾
-Kuala Lumpur
-Explore modern skyscrapers, local markets, cultural attractions and Malaysian cuisine.
+        nav a:hover {
+            color: #0969da;
+        }
 
-From £399
-Explore Kuala Lumpur
-×
-Why Choose FlyEasy?
-Make your travel planning simple and convenient.
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #0969da;
+        }
 
-💰
-Competitive Prices
-Find flight options that fit your travel budget.
+        /* ================= HERO ================= */
 
-🔒
-Secure
-Designed with customer security and privacy in mind.
+        .hero {
+            min-height: 570px;
+            background:
+                linear-gradient(rgba(4, 31, 68, 0.72), rgba(4, 31, 68, 0.72)),
+                url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
 
-⚡
-Easy Booking
-Search your journey using a simple and easy interface.
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+        }
 
-🎧
-Customer Support
-Get help with your travel questions and booking enquiries.
+        .hero-content {
+            width: 100%;
+            max-width: 1150px;
+            text-align: center;
+            color: white;
+        }
 
-About WorldWideAirlinesTicketsBooking
-WorldWideAirlineTicketsBooking is a modern flight-booking website designed to make travel planning simple and convenient.
+        .hero-content h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            margin-bottom: 15px;
+        }
 
-Visitors can search for flights, explore destinations and learn about popular places around the world.
+        .hero-content > p {
+            font-size: 19px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
 
-This website can be connected to a real flight inventory and booking system through an appropriate backend and authorized flight API.
+        /* ================= SEARCH BOX ================= */
 
-✈️
-Explore The World
-Your next adventure starts here.
+        .search-box {
+            background: white;
+            color: #172033;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            text-align: left;
+        }
 
-Contact Us
-Have questions? Our team is ready to help.
+        .trip-types {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+        }
 
-Get In Touch
-Contact us for information about flights, destinations and bookings.
+        .trip-types label {
+            cursor: pointer;
+            font-weight: 600;
+        }
 
-📍
-Address
-123 Main Street, Islamabad, Pakistan
+        .trip-types input {
+            margin-right: 6px;
+            accent-color: #0969da;
+        }
 
-📞
-Phone
-+92 3197064248
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
 
-📧
-Email
-jeffairlinetravel@gmail.com
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
 
-🕐
-Working Hours
-Monday - Saturday
-9:00 AM - 6:00 PM
+        .field label {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: #4b5563;
+        }
 
-Send Us a Message
-Your Name
- 
-Your Email
- 
-Phone Number
- 
-Your Message
+        .field input,
+        .field select {
+            width: 100%;
+            height: 47px;
+            border: 1px solid #d5dae2;
+            border-radius: 8px;
+            padding: 0 12px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
 
- Send Message
-✈️ WorldWideAirlinesTicketsBooking
-Your travel partner for discovering destinations around the world.
+        .field input:focus,
+        .field select:focus {
+            border-color: #0969da;
+            box-shadow: 0 0 0 3px rgba(9,105,218,0.1);
+        }
 
-Quick Links
-Home Destinations About Contact
-Contact
-📍 Islamabad, Pakistan
+        .search-button {
+            grid-column: span 4;
+            border: none;
+            background: #0969da;
+            color: white;
+            height: 52px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-📞 +92 3197064248
+        .search-button:hover {
+            background: #0756b5;
+            transform: translateY(-2px);
+        }
 
-📧 jeffairlinetravel@gmail.com
+        /* ================= GENERAL ================= */
 
-© 2026 WorldWideAirlinesTicketsBooking. All Rights Reserved.
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #172033;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        /* ================= DESTINATIONS ================= */
+
+        .destinations {
+            background: #ffffff;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.13);
+        }
+
+        .destination-image {
+            height: 210px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .flag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 22px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .destination-info {
+            padding: 22px;
+        }
+
+        .destination-info h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .destination-info p {
+            color: #667085;
+            font-size: 14px;
+            min-height: 70px;
+        }
+
+        .destination-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-weight: 800;
+            color: #0969da;
+        }
+
+        .explore-btn {
+            background: #eaf3ff;
+            color: #0969da;
+            padding: 9px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .explore-btn:hover {
+            background: #0969da;
+            color: white;
+        }
+
+        /* ================= WHY US ================= */
+
+        .why-us {
+            background: #f5f8fc;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #667085;
+            margin-bottom: 18px;
+        }
+
+        .world-box {
+            background: linear-gradient(135deg, #0969da, #064b9b);
+            color: white;
+            padding: 25px;
+            border-radius: 14px;
+            margin-top: 25px;
+        }
+
+        .world-box h3 {
+            margin-bottom: 5px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #f5f8fc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            font-size: 25px;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-item span {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #d5dae2;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #0969da;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #0969da;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0756b5;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #071a33;
+            color: white;
+            padding: 55px 20px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-logo {
+            font-size: 23px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .footer-column p {
+            color: #aebbd0;
+            font-size: 14px;
+            max-width: 400px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aebbd0;
+            text-decoration: none;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 45px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: #8f9db3;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ================= NOTIFICATION ================= */
+
+        .notification {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #172033;
+            color: white;
+            padding: 16px 22px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .search-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-button {
+                grid-column: span 2;
+            }
+
+            .destination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 65px;
+            }
+
+            nav {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-button {
+                grid-column: span 1;
+            }
+
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .about-text h2 {
+                font-size: 30px;
+            }
+
+            .trip-types {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="navbar">
+
+            <a href="#home" class="logo">
+                ✈️ WorldWide<span>AirlinesTicketsBooking</span>
+            </a>
+
+            <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+            <nav id="nav">
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Book Your Perfect Flight</h1>
+
+            <p>
+                Search flights, explore destinations and plan your next
+                unforgettable journey.
+            </p>
+
+            <div class="search-box">
+
+                <div class="trip-types">
+
+                    <label>
+                        <input type="radio" name="trip" checked>
+                        Round Trip
+                    </label>
+
+                    <label>
+                        <input type="radio" name="trip">
+                        One Way
+                    </label>
+
+                    <label>
+                        <input type="radio" name="trip">
+                        Multi-City
+                    </label>
+
+                </div>
+
+                <div class="search-grid">
+
+                    <div class="field">
+                        <label>From</label>
+                        <input type="text" placeholder="Departure city">
+                    </div>
+
+                    <div class="field">
+                        <label>To</label>
+                        <input type="text" placeholder="Arrival city">
+                    </div>
+
+                    <div class="field">
+                        <label>Departure</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="field">
+                        <label>Return</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="field">
+                        <label>Adults</label>
+                        <select>
+                            <option>1 Adult</option>
+                            <option>2 Adults</option>
+                            <option>3 Adults</option>
+                            <option>4 Adults</option>
+                            <option>5 Adults</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Youths</label>
+                        <select>
+                            <option>0 Youths</option>
+                            <option>1 Youth</option>
+                            <option>2 Youths</option>
+                            <option>3 Youths</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Children</label>
+                        <select>
+                            <option>0 Children</option>
+                            <option>1 Child</option>
+                            <option>2 Children</option>
+                            <option>3 Children</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Infants</label>
+                        <select>
+                            <option>0 Infants</option>
+                            <option>1 Infant</option>
+                            <option>2 Infants</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Cabin Class</label>
+                        <select>
+                            <option>Economy</option>
+                            <option>Premium Economy</option>
+                            <option>Business</option>
+                            <option>First Class</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Airline</label>
+                        <select>
+                            <option>Any Airline</option>
+                            <option>Emirates</option>
+                            <option>Qatar Airways</option>
+                            <option>Turkish Airlines</option>
+                            <option>British Airways</option>
+                            <option>Singapore Airlines</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Promo Code</label>
+                        <input type="text" placeholder="Optional">
+                    </div>
+
+                    <button class="search-button" onclick="searchFlights()">
+                        🔎 Search Flights
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DESTINATIONS ================= -->
+
+    <section class="destinations" id="destinations">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>
+                    Explore some of the world's most exciting travel destinations.
+                </p>
+            </div>
+
+            <div class="destination-grid">
+
+                <!-- Dubai -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai">
+                        <div class="flag">🇦🇪</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Dubai</h3>
+                        <p>
+                            Discover futuristic architecture, luxury shopping,
+                            beautiful beaches and unforgettable desert adventures.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £299</span>
+                            <a href="#contact" class="explore-btn">Explore Dubai</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- London -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80" alt="London">
+                        <div class="flag">🇬🇧</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>London</h3>
+                        <p>
+                            Explore historic landmarks, museums, royal attractions
+                            and vibrant city life.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £499</span>
+                            <a href="#contact" class="explore-btn">Explore London</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Paris -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Paris">
+                        <div class="flag">🇫🇷</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Paris</h3>
+                        <p>
+                            Experience art, fashion, cuisine, historic architecture
+                            and romantic streets.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £449</span>
+                            <a href="#contact" class="explore-btn">Explore Paris</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- New York -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=900&q=80" alt="New York">
+                        <div class="flag">🇺🇸</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>New York</h3>
+                        <p>
+                            Visit Times Square, Central Park, museums, restaurants
+                            and iconic skyscrapers.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £599</span>
+                            <a href="#contact" class="explore-btn">Explore New York</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Istanbul -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80" alt="Istanbul">
+                        <div class="flag">🇹🇷</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Istanbul</h3>
+                        <p>
+                            Discover historic mosques, bazaars, delicious food
+                            and the unique culture connecting two continents.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £349</span>
+                            <a href="#contact" class="explore-btn">Explore Istanbul</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Maldives -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80" alt="Maldives">
+                        <div class="flag">🇲🇻</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Maldives</h3>
+                        <p>
+                            Relax on beautiful beaches and enjoy crystal-clear
+                            water, resorts and unforgettable island experiences.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £549</span>
+                            <a href="#contact" class="explore-btn">Explore Maldives</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Singapore -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=80" alt="Singapore">
+                        <div class="flag">🇸🇬</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Singapore</h3>
+                        <p>
+                            Experience a clean modern city with gardens, shopping,
+                            food and impressive architecture.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £399</span>
+                            <a href="#contact" class="explore-btn">Explore Singapore</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Tokyo -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80" alt="Tokyo">
+                        <div class="flag">🇯🇵</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Tokyo</h3>
+                        <p>
+                            Discover Japanese culture, technology, food, temples
+                            and one of the world's most exciting cities.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £699</span>
+                            <a href="#contact" class="explore-btn">Explore Tokyo</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Kuala Lumpur -->
+
+                <div class="destination-card">
+
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=80" alt="Kuala Lumpur">
+                        <div class="flag">🇲🇾</div>
+                    </div>
+
+                    <div class="destination-info">
+                        <h3>Kuala Lumpur</h3>
+                        <p>
+                            Explore modern skyscrapers, local markets, cultural
+                            attractions and Malaysian cuisine.
+                        </p>
+
+                        <div class="destination-bottom">
+                            <span class="price">From £399</span>
+                            <a href="#contact" class="explore-btn">Explore Kuala Lumpur</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="why-us">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Why Choose Us?</h2>
+                <p>Make your travel planning simple and convenient.</p>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Competitive Prices</h3>
+                    <p>
+                        Find flight options that fit your travel budget.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure</h3>
+                    <p>
+                        Designed with customer security and privacy in mind.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Easy Booking</h3>
+                    <p>
+                        Search your journey using a simple and easy interface.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Customer Support</h3>
+                    <p>
+                        Get help with your travel questions and booking enquiries.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-content">
+
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80"
+                        alt="Airplane">
+                </div>
+
+                <div class="about-text">
+
+                    <h2>About WorldWideAirlinesTicketsBooking</h2>
+
+                    <p>
+                        WorldWideAirlinesTicketsBooking is a modern flight-booking
+                        website designed to make travel planning simple and convenient.
+                    </p>
+
+                    <p>
+                        Visitors can search for flights, explore destinations and
+                        learn about popular places around the world.
+                    </p>
+
+                    <p>
+                        This website can be connected to a real flight inventory
+                        and booking system through an appropriate backend and
+                        authorized flight API.
+                    </p>
+
+                    <div class="world-box">
+                        <h3>✈️ Explore The World</h3>
+                        <p>Your next adventure starts here.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions? Our team is ready to help.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-info">
+
+                    <h2>Get In Touch</h2>
+
+                    <p style="color:#667085; margin-bottom:30px;">
+                        Contact us for information about flights,
+                        destinations and bookings.
+                    </p>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address</strong>
+                            <span>123 Main Street, Islamabad, Pakistan</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong>
+                            <span>+92 3197064248</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong>
+                            <span>jeffairlinetravel@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div>
+                            <strong>Working Hours</strong>
+                            <span>Monday - Saturday<br>9:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form">
+
+                    <h2>Send Us a Message</h2>
+
+                    <form onsubmit="sendMessage(event)">
+
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea placeholder="Write your message..." required></textarea>
+                        </div>
+
+                        <button class="submit-btn" type="submit">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+
+                <div class="footer-logo">
+                    ✈️ WorldWideAirlinesTicketsBooking
+                </div>
+
+                <p>
+                    Your travel partner for discovering destinations
+                    around the world.
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <a href="#">📍 Islamabad, Pakistan</a>
+                <a href="tel:+923197064248">📞 +92 3197064248</a>
+                <a href="mailto:jeffairlinetravel@gmail.com">
+                    📧 jeffairlinetravel@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 WorldWideAirlinesTicketsBooking. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- Notification -->
+
+    <div class="notification" id="notification"></div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
